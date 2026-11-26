@@ -118,3 +118,5 @@ a:hover { color: var(--accent); }
 .legal h2 { font-weight: 500; font-size: 24px; margin: 36px 0 10px; }
 .legal p { margin: 0 0 16px; }
 .todo { background: #f6e7b8; padding: 0 4px; }
+.signup .ml-done { font-size: 22px; font-style: italic; }
+.signup .ml-error { font-family: var(--sans); font-size: 14px; color: #8a2a1a; }

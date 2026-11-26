@@ -1,18 +1,43 @@
 ---
 import { site } from '../site.config.mjs';
 const { boxed = false, heading = null, id = null } = Astro.props;
-const action = site.mailerliteAction || `mailto:${site.email}?subject=Please%20add%20me%20to%20your%20letters`;
-const method = site.mailerliteAction ? 'post' : 'get';
 ---
 <div class:list={['signup', { boxed }]} id={id}>
   {heading && <h2>{heading}</h2>}
   <p>New essays by email, a few times a year. Nothing else. Or simply write to me at <a href={`mailto:${site.email}`}>{site.email}</a>.</p>
-  <form action={action} method={method}>
+  <form class="ml-form" action={site.mailerliteAction} method="post" target="_blank">
     <label>Your email
       <input type="email" name="fields[email]" placeholder="you@example.com" autocomplete="email" required>
     </label>
     <input type="hidden" name="ml-submit" value="1">
+    <input type="hidden" name="anticsrf" value="true">
     <button type="submit">Send me new essays</button>
   </form>
+  <p class="ml-done" hidden>Thank you. You're on the list.</p>
+  <p class="ml-error" hidden>That didn't work. Please try again, or email me at <a href={`mailto:${site.email}`}>{site.email}</a>.</p>
   <p class="note">You can unsubscribe with one click. See the <a href="/privacy">privacy note</a>.</p>
 </div>
+
+<script>
+  // Sends the form to MailerLite in the background and shows a thank-you line.
+  // Without JavaScript the form still works and opens MailerLite's response in a new tab.
+  document.querySelectorAll('form.ml-form').forEach((form) => {
+    form.addEventListener('submit', async (ev) => {
+      ev.preventDefault();
+      const box = form.parentElement;
+      const button = form.querySelector('button');
+      button.disabled = true;
+      try {
+        const res = await fetch(form.action, { method: 'POST', body: new FormData(form) });
+        const data = await res.json().catch(() => ({}));
+        if (!res.ok || data.success === false) throw new Error('failed');
+        form.hidden = true;
+        box.querySelector('.ml-done').hidden = false;
+        box.querySelector('.ml-error').hidden = true;
+      } catch {
+        box.querySelector('.ml-error').hidden = false;
+        button.disabled = false;
+      }
+    });
+  });
+</script>

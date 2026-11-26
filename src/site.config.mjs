@@ -4,10 +4,9 @@ export const site = {
   description:
     'Martin Klug builds companies, backs founders and invests in residential real estate in Germany. Essays on building, investing and deciding.',
   email: 'martin@martinklug.com',
-  linkedin: 'https://www.linkedin.com/', // TODO: Martin's profile URL
+  linkedin: 'https://www.linkedin.com/in/martinklug',
   locations: 'Lithuania · Germany · Netherlands',
-  // MailerLite: paste the form action URL from MailerLite (Forms → Embedded form → HTML code).
-  // While empty, the signup form falls back to opening an email.
-  mailerliteAction: '',
+  // MailerLite embedded form (Forms → Embedded forms → HTML code → the form's action URL).
+  mailerliteAction: 'https://assets.mailerlite.com/jsonp/1987908/forms/176468664098227238/subscribe',
   categories: ['Investing', 'Building', 'Deciding', 'Living', 'Real estate'],
 };
