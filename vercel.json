@@ -3,14 +3,67 @@
   "cleanUrls": true,
   "trailingSlash": false,
   "redirects": [
-    { "source": "/insights/most-founders-dont-have-a-business-problem-they-have-an-honesty-problem", "destination": "/essays/agreement-is-the-slowest-way", "permanent": true },
-    { "source": "/insights/:slug*", "destination": "/#writing", "permanent": true },
-    { "source": "/insights", "destination": "/#writing", "permanent": true },
-    { "source": "/about", "destination": "/#about", "permanent": true },
-    { "source": "/work-with-me", "destination": "/", "permanent": true },
-    { "source": "/apply", "destination": "/", "permanent": true },
-    { "source": "/imprint", "destination": "/impressum", "permanent": true },
-    { "source": "/privacy-policy", "destination": "/privacy", "permanent": true },
-    { "source": "/terms", "destination": "/privacy", "permanent": true }
+    {
+      "source": "/insights/most-founders-dont-have-a-business-problem-they-have-an-honesty-problem",
+      "destination": "/essays/agreement-is-the-slowest-way",
+      "permanent": true
+    },
+    {
+      "source": "/insights/:slug*",
+      "destination": "/#writing",
+      "permanent": true
+    },
+    {
+      "source": "/insights",
+      "destination": "/#writing",
+      "permanent": true
+    },
+    {
+      "source": "/about",
+      "destination": "/#about",
+      "permanent": true
+    },
+    {
+      "source": "/work-with-me",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/apply",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/imprint",
+      "destination": "/impressum",
+      "permanent": true
+    },
+    {
+      "source": "/privacy-policy",
+      "destination": "/privacy",
+      "permanent": true
+    },
+    {
+      "source": "/terms",
+      "destination": "/privacy",
+      "permanent": true
+    }
+  ],
+  "headers": [
+    {
+      "source": "/(.*)",
+      "has": [
+        {
+          "type": "host",
+          "value": "(?<sub>.*)\\.vercel\\.app"
+        }
+      ],
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex"
+        }
+      ]
+    }
   ]
 }
