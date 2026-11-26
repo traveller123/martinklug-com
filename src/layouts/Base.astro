@@ -4,7 +4,8 @@ import { site } from '../site.config.mjs';
 
 const { title, description = site.description, ogType = 'website' } = Astro.props;
 const fullTitle = title ? `${title} – ${site.name}` : `${site.name} – Building, investing, deciding`;
-const canonical = new URL(Astro.url.pathname, Astro.site);
+const cleanPath = Astro.url.pathname.replace(/index\.html$/, '').replace(/\.html$/, '');
+const canonical = new URL(cleanPath, Astro.site);
 const ogImage = new URL('/images/og.jpg', Astro.site);
 ---
 <!doctype html>

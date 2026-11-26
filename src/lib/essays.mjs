@@ -5,7 +5,7 @@ export function getEssays() {
     .filter((m) => !m.frontmatter.draft)
     .map((m) => ({
       ...m.frontmatter,
-      url: m.url,
+      url: (m.url || '').replace(/\.html$/, ''),
       words: (m.rawContent?.() || '').split(/\s+/).filter(Boolean).length,
     }))
     .sort((a, b) => (b.order ?? 0) - (a.order ?? 0));

@@ -3,7 +3,8 @@ import Base from './Base.astro';
 import Signup from '../components/Signup.astro';
 import { getEssays, readingTime } from '../lib/essays.mjs';
 
-const { frontmatter, url } = Astro.props;
+const { frontmatter } = Astro.props;
+const url = (Astro.props.url || '').replace(/\.html$/, '');
 const essays = getEssays();
 const i = essays.findIndex((e) => e.url === url);
 const current = essays[i] || { words: 0 };
