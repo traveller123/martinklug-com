@@ -1,0 +1,24 @@
+---
+import Base from '../layouts/Base.astro';
+import { site } from '../site.config.mjs';
+---
+<Base title="Impressum">
+  <div class="prose-wrap legal">
+    <h1>Impressum</h1>
+    <h2>Angaben gemäß § 5 DDG</h2>
+    <p>Martin Klug<br>
+      c/o Spessartia UAB<br>
+      <span class="todo">[Straße und Hausnummer]</span><br>
+      <span class="todo">[PLZ Ort]</span><br>
+      Litauen</p>
+    <p>Spessartia UAB, Unternehmenscode <span class="todo">[Įmonės kodas]</span>, USt-IdNr. <span class="todo">[LT…]</span></p>
+    <h2>Kontakt</h2>
+    <p>E-Mail: <a href={`mailto:${site.email}`}>{site.email}</a></p>
+    <h2>Verantwortlich für den Inhalt nach § 18 Abs. 2 MStV</h2>
+    <p>Martin Klug, Anschrift wie oben.</p>
+    <h2>Haftung für Links</h2>
+    <p>Diese Website enthält Links zu externen Websites Dritter, auf deren Inhalte ich keinen Einfluss habe. Für die Inhalte der verlinkten Seiten ist stets der jeweilige Anbieter oder Betreiber verantwortlich.</p>
+    <h2>Legal notice (English)</h2>
+    <p>This is the personal website of Martin Klug. Contact and address as above.</p>
+  </div>
+</Base>

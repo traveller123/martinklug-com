@@ -1,0 +1,27 @@
+---
+import Base from '../layouts/Base.astro';
+import { site } from '../site.config.mjs';
+---
+<Base title="Privacy">
+  <div class="prose-wrap legal">
+    <h1>Privacy</h1>
+    <p>This is a personal website. It collects as little data as possible: no cookies, no tracking, no analytics, no advertising. Fonts and images are served from this website itself, not from third parties.</p>
+
+    <h2>Who is responsible</h2>
+    <p>Martin Klug, contact details in the <a href="/impressum">Impressum</a>. Email: <a href={`mailto:${site.email}`}>{site.email}</a>.</p>
+
+    <h2>Hosting</h2>
+    <p>The website is hosted by Vercel Inc., 440 N Barranca Ave #4133, Covina, CA 91723, USA. When you visit a page, Vercel processes technical data such as your IP address, the page requested and the time of the request, in order to deliver the website and keep it secure (Art. 6(1)(f) GDPR). Vercel may process data in the USA. Transfers are covered by the EU-US Data Privacy Framework and standard contractual clauses.</p>
+
+    <h2>Letters (newsletter)</h2>
+    <p>If you sign up for new essays by email, your email address is stored with MailerLite (MailerLite Limited, Ireland), which sends the emails on my behalf. The legal basis is your consent (Art. 6(1)(a) GDPR). You confirm your subscription by email, and you can unsubscribe at any time with the link in every email.</p>
+
+    <h2>Email</h2>
+    <p>If you write to me, I use your message and address only to reply.</p>
+
+    <h2>Your rights</h2>
+    <p>You can ask for access to, correction or deletion of your data, restrict or object to its processing, and ask for data portability. You can also complain to a data protection authority. Write to the address above.</p>
+
+    <p class="label" style="margin-top: 40px;">Last updated: November 2026</p>
+  </div>
+</Base>

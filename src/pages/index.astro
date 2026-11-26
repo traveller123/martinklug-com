@@ -1,0 +1,52 @@
+---
+import Base from '../layouts/Base.astro';
+import Signup from '../components/Signup.astro';
+import { getEssays } from '../lib/essays.mjs';
+import { site } from '../site.config.mjs';
+
+const essays = getEssays();
+---
+<Base>
+  <div class="strap label">
+    <span>Notes on building, investing &amp; deciding</span>
+    <span>{site.locations}</span>
+  </div>
+
+  <h1 class="masthead">Martin <em>Klug</em></h1>
+
+  <section id="about" class="g intro">
+    <div class="c-photo">
+      <img class="portrait" src="/images/martin-klug.jpg" alt="Martin Klug at a wooden table, on the phone and smiling" width="900" height="1125">
+    </div>
+    <div class="c-text">
+      <p class="lede">I build companies, back founders, and invest in residential real estate in Germany. Here I write down what I learn along the way.</p>
+      <p>I started my career at PwC and IBM, then founded my own companies, among them TravelEssence in the Netherlands, which I later sold. Today most of my time and capital goes into German residential property, alongside early-stage investments in European startups. What I value in business: honest numbers, clear decisions, and partners who tell me when I'm wrong.</p>
+      <dl class="facts">
+        <div><dt>Real estate</dt><dd>Managing director, <a href="https://freierklugschulz.de">Freierklugschulz Immobilien</a></dd></div>
+        <div><dt>Venture</dt><dd>Angel and fund investments via Moraun Konzept</dd></div>
+        <div><dt>Before</dt><dd>Founder &amp; exit, TravelEssence · PwC · IBM</dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <section id="writing" class="g section">
+    <h2 class="c-lab">Writing</h2>
+    <ul class="c-list essay-list">
+      {essays.map((e) => (
+        <li>
+          <a href={e.url}>
+            <span class="t">{e.title}{e.summary && <span class="s">{e.summary}</span>}</span>
+            <span class="k">{e.category}</span>
+          </a>
+        </li>
+      ))}
+    </ul>
+  </section>
+
+  <section id="letters" class="g section">
+    <h2 class="c-lab">Letters</h2>
+    <div class="c-list">
+      <Signup />
+    </div>
+  </section>
+</Base>
